@@ -1,0 +1,45 @@
+malware:
+  name: IMDDOS
+  
+infrastructure:
+  name: IMDDOS Target-list Hosting
+  
+infrastructure:
+  name: IMDDOS C2 Controller
+  
+relationship:
+  relationship_type: uses
+  source_ref: 0
+  target_ref: 1
+  
+relationship:
+  relationship_type: uses
+  source_ref: 0
+  target_ref: 2
+  
+relationship:
+  relationship_type: indicates
+  source_ref: C2 Controller
+  target_ref: 2
+  
+relationship:
+  relationship_type: indicates
+  source_ref: Target List Host
+  target_ref: 1
+  
+relationship:
+  relationship_type: indicates
+  source_ref: Services Regkey
+  target_ref: IMDDOS
+  
+indicator:
+  name: C2 Controller
+  pattern: foo
+  
+indicator:
+  name: Target List Host
+  pattern: bar
+  
+indicator:
+  name: Services Regkey
+  pattern: foobar
