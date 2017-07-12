@@ -1,0 +1,47 @@
+infrastructure:
+  name: IMDDoS Botnet
+  
+malware:
+  name: IMDDoS Bot
+  
+relationship:
+  source_ref: IMDDoS Botnet
+  target_ref: IMDDoS Bot
+  relationship_type: has-bot
+  
+threat-actor:
+  name: Unknown IMDDoS
+  
+relationship:
+  source_ref: Unknown IMDDoS
+  target_ref: IMDDoS Botnet
+  relationship_type: operates
+  
+location:
+  name: China
+  
+relationship:
+  source_ref: Unknown IMDDoS
+  target_ref: China
+  relationship_type: located-at
+  
+indicator:
+  name: Registry Key
+  
+relationship:
+  source_ref: Registry Key
+  target_ref: IMDDoS Bot
+  
+indicator:
+  name: C2 Domains
+  
+relationship:
+  source_ref: C2 Domains
+  target_ref: IMDDoS Botnet
+  
+indicator:
+  name: TLHD Domains
+  
+relationship:
+  source_ref: TLHD Domains
+  target_ref: IMDDoS Botnet

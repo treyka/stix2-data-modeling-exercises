@@ -1,0 +1,71 @@
+marking-definition:
+   definition_type: statement
+   definition: [ statement: "Copyright 2010, Damballa, Inc  All Rights Reserved" ]
+
+report:
+   name: IMDDOS Botnet
+   labels: threat-report
+   description: "The newly-uncovered IMDDOS Botnet is a commercial DDOS service hosted in China."
+   published: 20100913T00:00:00Z
+   object_refs: [ IMDDOS, IMDDOS THLD, IMDDOS THLD Traffic, IMDDOS Infected Host, IMDDOS C2 Traffic ]
+   object_marking_refs: [ 0 ]
+   external_references: [ source_name: "Damballa, Inc.", url: "https://www.coresecurity.com/system/files/publications/2017/03/Damballa_Report_IMDDOS.pdf", hashes: [ sha1: "4e0f4197d6d61f52f80a5560d78af599a37277c0" ] ]
+
+malware:
+   name: IMDDOS
+   labels: bot, ddos
+   description: "Once infected with this malware, a host becomes part of the IMDDOS Botnet"
+   kill_chain: [ kill_chain_name: "lockheed-martin-cyber-kill-chain", phase_name: "exploit" ]
+
+indicator:
+   name: IMDDOS THLD
+   labels: malicious-activity
+   description: "References to this domain are indicative of the presence of the IMDDOS malware in the environment"
+   valid_from: 20100401T00:00:00Z
+   kill_chain: [ kill_chain_name: "lockheed-martin-cyber-kill-chain", phase_name: "control" ]
+   pattern: [ domain-name:value = 'imddos.my03.com' ]
+
+indicator:
+   name: IMDDOS THLD Traffic
+   labels: malicious-activity
+   description: "Traffic to this domain indicates the source host is infected with IMDDOS malware"
+   valid_from: 20100401T00:00:00Z
+   kill_chain: [ kill_chain_name: "lockheed-martin-cyber-kill-chain", phase_name: "control" ]
+   pattern: [ network-traffic:dst_ref.type = 'domain-name' AND network-traffic:dst_ref.value = 'imddos.my03.com' AND AND network-traffic:dst_port = 9090 ]
+
+indicator:
+   name: IMDDOS Infected Host
+   labels: malicious-activity
+   description: "Presence of this registry key on a host indicates it is infected with the IMDDOS malware"
+   valid_from: 20100401T00:00:00Z
+   kill_chain: [ kill_chain_name: "lockheed-martin-cyber-kill-chain", phase_name: "control" ]
+   pattern: [windows-registry-key:key LIKE 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\SafePrec%' ]
+
+indicator:
+   name: IMDDOS C2 Traffic
+   labels: malicious-activity
+   description: "Traffic to these domains indicates that the source host is under the control of the IMDDOS malware"
+   valid_from: 20100401T00:00:00Z
+   kill_chain: [ kill_chain_name: "lockheed-martin-cyber-kill-chain", phase_name: "control" ]
+   pattern: [ network-traffic:dst_ref.type = 'domain-name' AND ( network-traffic:dst_ref.value = 'dns.ddos.im' OR network-traffic:dst_ref.value = 'win2003ddos.3322.org' OR network-traffic:dst_ref.value = 'woshindi.3322.org' ) ]
+   
+   
+relationship:
+   relationship_type: indicates
+   source_ref: IMDDOS THLD
+   target_ref: IMDDOS
+
+relationship:
+   relationship_type: indicates
+   source_ref: IMDDOS THLD Traffic
+   target_ref: IMDDOS
+
+relationship:
+   relationship_type: indicates
+   source_ref: IMDDOS Infected Host
+   target_ref: IMDDOS
+
+relationship:
+   relationship_type: indicates
+   source_ref: IMDDOS C2 Traffic
+   target_ref: IMDDOS
