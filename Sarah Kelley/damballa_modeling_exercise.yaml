@@ -1,0 +1,235 @@
+malware:
+  name: IMDDOS
+  description: LOTS of details here about the malware.
+  
+location:
+  name: China
+
+relationship:
+  name: located-in
+  source_ref: 0
+  target_ref: 1
+
+threat-actor:
+    name: unknown
+
+relationship:
+    name: created
+    source_ref: 3
+    target_ref: 0
+
+indicator:
+    pattern: "[imddos@live.com]"
+    
+relationship:
+    name: indicates
+    source_ref: 5
+    target_ref: 3
+
+indicator:
+    pattern: "[imddos.my03.com]"
+
+relationship:
+    name: indicates
+    source_ref: 7
+    target_ref: 0
+
+indicator:
+    pattern: "[some crazy pattern to represent the registry key]"
+
+relationship:
+    name:  indicates
+    source_ref: 9
+    target_ref: 0
+
+indicator:
+    pattern: "[some crazy pattern to represent the process name]"
+
+relationship:
+    name: indicates
+    source_ref: 11
+    target_ref: 0
+    
+indicator:
+    pattern: "[http://imddos.my01.com:9090/]"
+
+relationship:
+    name: indicates
+    source_ref: 13
+    target_ref: 0
+
+indicator:
+    pattern: "[http://test.dns-dns.com:9090]"
+
+relationship:
+    name: indicates
+    source_ref: 15
+    target_ref: 0
+
+indicator:
+    pattern: "[dns.ddos.im]"
+
+relationship:
+    name: indicates
+    source_ref: 17
+    target_ref: 0
+
+indicator:
+    pattern: "[win2003ddos.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 19
+    target_ref: 0
+
+indicator:
+    pattern: "[woshindi.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 21
+    target_ref: 0
+    
+indicator:
+    pattern: "[pk518.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 23
+    target_ref: 0
+
+indicator:
+    pattern: "[huanjue6369029.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 25
+    target_ref: 0
+
+indicator:
+    pattern: "[qq603535.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 27
+    target_ref: 0
+
+indicator:
+    pattern: "[qq188588.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 29
+    target_ref: 0
+
+indicator:
+    pattern: "[hjff.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 31
+    target_ref: 0
+
+indicator:
+    pattern: "[198600.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 33
+    target_ref: 0
+
+indicator:
+    pattern: "[ankankan.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 35
+    target_ref: 0
+
+indicator:
+    pattern: "[yinn.3322.org]"
+
+relationship:
+    name: indicates
+    source_ref: 37
+    target_ref: 0
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 7
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 9
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 11
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 13
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 15
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 17
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 19
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 21
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 23
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 25
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 27
+    
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 29
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 31
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 33
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 35
+
+relationship:
+    name: indicates
+    source_ref: 3
+    target_ref: 37
