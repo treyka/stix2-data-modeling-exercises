@@ -9,61 +9,60 @@ components of the botnet infrastructure, the malware used, and what is
 currently being done to disrupt its operation."
   external_references: [{"source_name": "Damballa", "url": "https://www.coresecurity.com/publication/imddos-botnet-discovery-and-analysis", "description": "Original Damballa Report"}]
   published: "2010-09-13T00:00:00Z"
-  object_refs: ["indicator--9491979e-3b0f-481c-a1c2-7cd729406b0c", "indicator--16005bac-466e-4fdd-bba1-7936a553014e", "indicator--ff358b05-270a-4d0e-bdcc-70939fff1bfd"]
+  object_refs: ["IMDDOS Malware", "Unknown IMDDoS Threat Actor", "IMDDOS Malware Indicator", "IMDDOS Target-List Hosting Domain (TLHD) Indicator", "IMDDOS CnC Domains Indicator"]
+  created_by_ref: "Damballa Identity"
+
+identity:
+  name: "Damballa Identity"
+  identity_class: "organization"
+
+malware:
+  name: "IMDDOS Malware"
+  created_by_ref: "Damballa Identity"
+
+threat-actor:
+  name: "Unknown IMDDoS Threat Actor"
+  created_by_ref: "Damballa Identity"
 
 indicator:
-  id: "indicator--9491979e-3b0f-481c-a1c2-7cd729406b0c"
   labels: ["malicious-activity"]
-  name: "IMDDOS Malware"
+  name: "IMDDOS Malware Indicator"
   description: "Describes IOCs for the initial botnet infection of a host."
   pattern: "[win-registry-key:key MATCHES '^HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SafePrec.*$' AND win-registry-key:values[*].name = 'ImagePath' AND win-registry-key:values[*].data MATCHES '^([:xdigit:]){6,10)$'] FOLLOWEDBY [network-traffic:dst_ref.type = 'domain-name' AND network-traffic:dst_ref.value = 'imddos.my03.com' AND network-traffic:extensions.'http-request-ext'.'User-Agent' MATCHES '^(STORMDDOS|YTDDOS|IAMDDOS|i\\sam\\sddos|kav)$']"
+  created_by_ref: "Damballa Identity"
 
 indicator:
-  id: "indicator--16005bac-466e-4fdd-bba1-7936a553014e"
   labels: ["malicious-activity"]
-  name: "IMDDOS Target-List Hosting Domain (TLHD)"
+  name: "IMDDOS Target-List Hosting Domain (TLHD) Indicator"
   description: "Describes IOCs for the domains that hosts the file containing the list of targeted
 domains to be DD0S’d"
   pattern: "[network-traffic:dst_ref.type = 'domain-name' AND network-traffic:dst_ref.value MATCHES '^(imddos.my03.com|test.dns-dns.com)$' AND network-traffic:dst_port = 9090 AND (network-traffic:protocols[0] = 'tcp' AND network-traffic:protocols[1] = 'http']') AND network-traffic:extensions.'http-request-ext'.request_method = 'get' AND network-traffic:extensions.'http-request-ext'.'request_value' MATCHES '^(test1.html|888.html|bawang.html|puff.html|gesheng.html|090210.html|2764485.html|chinawf518.html|xiaonan888.html)$' AND network-traffic:extensions.'http-request-ext'.Host MATCHES '^(imddos.my03.com|test.dns-dns.com)$' AND network-traffic:extensions.'http-request-ext'.'User-Agent' MATCHES '^(STORMDDOS|YTDDOS|IAMDDOS|i\\sam\\sddos|kav)$']"
+  created_by_ref: "Damballa Identity"
 
 indicator:
-  id: "indicator--ff358b05-270a-4d0e-bdcc-70939fff1bfd"
   labels: ["malicious-activity"]
-  name: "IMDDOS CnC Domains"
+  name: "IMDDOS CnC Domains Indicator"
   description: "Describes IOCs for the IMDDOS CNC domains"
   pattern: "[network-traffic:dst_ref.type = 'domain-name' AND network-traffic:dst_ref.value MATCHES '^(dns.ddos.im|win2003ddos.3322.org|woshindi.3322.org|pk518.3322.org|huanjue6369029.3322.org|qq603535.3322.org|qq188588.3322.org|hjff.3322.org|198600.3322.org|ankankan.3322.org|yinn.3322.org)$']"
+  created_by_ref: "Damballa Identity"
 
 relationship:
-  name: indicates
-  source_ref: 0
-  target_ref: 1
+  relationship_type: uses
+  source_ref: "Unknown IMDDoS Threat Actor"
+  target_ref: "IMDDOS Malware"
 
 relationship:
-  name: indicates
-  source_ref: 0
-  target_ref: 2
+  relationship_type: indicates
+  source_ref: "IMDDOS Malware Indicator"
+  target_ref: "IMDDOS Malware"
 
 relationship:
-  name: indicates
-  source_ref: 0
-  target_ref: 3
-
-
-
-
-
-
--=-
-
-campaign:
-  name: Shade of Palms
-
-indicator:
-  pattern: "[file.hashes.MD5 = 'xxx']"
+  relationship_type: indicates
+  source_ref: "IMDDOS Target-List Hosting Domain (TLHD) Indicator"
+  target_ref: "IMDDOS Malware"
 
 relationship:
-  name: indicates
-  source_ref: 1
-  target_ref: 0
-
+  relationship_type: indicates
+  source_ref: "IMDDOS CnC Domains Indicator"
+  target_ref: "IMDDOS Malware"
 
