@@ -1,0 +1,36 @@
+I was thinking about the IMDDOS example and the relatively minor
+differences between the approaches we took.  One place where there
+are more options is the specification of indicator patterns.  For
+a list such as the C2 domains in IMDDOS, I could think of three
+semantically-equivalent ways of expressing that pattern - using IN,
+using MATCHES (as Trey did) and using comparison operators.  Maybe
+there are others as well...  I don't think this is a problem but I
+do want to point this out when we think about people consuming
+patterns in their systems.  Each of these variants need to match
+the same exact set of objects.
+
+I've written out the patterns for reference. To keep these examples
+shorter I'm assuming that there are only three C2 domains in IMDDOS:
+dns.ddos.im, win2003ddos.3322.org, and woshindi.3322.org
+
+Now while there are three semantically-equivalent ways of writing
+the matches, there are also at least three reasonable choices someone
+could make when mapping C2 domains from a report like IMDDOS to
+STIX 2 indicator patterns.  These are NOT semantically equivalent
+but in many environments or for many uses they may be practically
+interchangeable.  I've written these out below.
+
+#1) Use domain-name
+domain-name:value IN ('dns.ddos.im', 'win2003ddos.3322.org', 'woshindi.3322.org')
+domain-name:value MATCHES '^(dns.ddos.im|win2003ddos,3322.org|woshindi.3322.org)$'
+domain-name:value = 'dns.ddos.im' OR domain-name:value = 'win2003ddos.3322.org' or domain-name:value = 'woshindi.3322.org'
+
+#2) Use network-traffic without port
+network-traffic:dst_ref.type = 'domain-name' AND ( network-traffic:dst_ref.value IN ( 'dns.ddos.im', 'win2003ddos.3322.org', 'woshindi.3322.org' )
+network-traffic:dst_ref.type = 'domain-name' AND ( network-traffic:dst_ref.value MATCHES '^(dns.ddos.im|win2003ddos,3322.org|woshindi.3322.org)$'
+network-traffic:dst_ref.type = 'domain-name' AND ( network-traffic:dst_ref.value = 'dns.ddos.im' OR network-traffic:dst_ref.value = 'win2003ddos.3322.org' OR network-traffic:dst_ref.value = 'woshindi.3322.org' )
+
+#3) Use network-traffic with port
+network-traffic:dst_ref.type = 'domain-name' AND ( network-traffic:dst_ref.value IN ( 'dns.ddos.im', 'win2003ddos.3322.org', 'woshindi.3322.org' ) AND network-traffic.dst_port = 9090
+network-traffic:dst_ref.type = 'domain-name' AND ( network-traffic:dst_ref.value MATCHES '^(dns.ddos.im|win2003ddos,3322.org|woshindi.3322.org)$' AND network-traffic.dst_port = 9090
+network-traffic:dst_ref.type = 'domain-name' AND ( network-traffic:dst_ref.value = 'dns.ddos.im' OR network-traffic:dst_ref.value = 'win2003ddos.3322.org' OR network-traffic:dst_ref.value = 'woshindi.3322.org' ) AND network-traffic.dst_port = 9090
