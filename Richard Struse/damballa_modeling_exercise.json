@@ -1,0 +1,177 @@
+{
+  "type": "bundle",
+  "id": "bundle--f784ea82-59aa-4ae9-95b2-0c052b5029b3",
+  "spec_version": "2.0",
+  "objects": [
+    {
+      "type": "marking-definition",
+      "id": "marking-definition--413843b1-e4d4-4516-8513-6b2f91b94c86",
+      "created": "2017-07-18T01:54:01.448Z",
+      "definition_type": "statement",
+      "definition": {
+        "statement": "Copyright 2010, Damballa, Inc  All Rights Reserved"
+      }
+    },
+    {
+      "type": "report",
+      "id": "report--c3b32c7e-b8f5-4f87-a99a-baaa91a46a56",
+      "created": "2017-07-18T01:54:01.448Z",
+      "modified": "2017-07-18T01:54:01.448Z",
+      "name": "IMDDOS Botnet",
+      "labels": [
+        "threat-report"
+      ],
+      "description": "The newly-uncovered IMDDOS Botnet is a commercial DDOS service hosted in China.",
+      "published": "2010-09-13T00:00:00.000Z",
+      "object_refs": [
+        "malware--48959269-3397-4c7b-a646-18c7bd54e34b",
+        "indicator--9242b6f6-6bfb-4a98-b866-2c4f9a20fa5f",
+        "indicator--1ab20977-fcac-460c-893a-a712e33d3430",
+        "indicator--ecc37b57-5107-47ec-aa8d-1449342f078a",
+        "indicator--2a50707b-f3e9-4ac9-911e-5b912500bd48"
+      ],
+      "object_marking_refs": [
+        "marking-definition--413843b1-e4d4-4516-8513-6b2f91b94c86"
+      ],
+      "external_references": [
+        {
+          "source_name": "Damballa, Inc.",
+          "url": "https://www.coresecurity.com/system/files/publications/2017/03/Damballa_Report_IMDDOS.pdf",
+          "hashes": {
+            "SHA-1": "4e0f4197d6d61f52f80a5560d78af599a37277c0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "malware",
+      "id": "malware--48959269-3397-4c7b-a646-18c7bd54e34b",
+      "created": "2017-07-18T01:54:01.448Z",
+      "modified": "2017-07-18T01:54:01.448Z",
+      "name": "IMDDOS",
+      "labels": [
+        "bot",
+        "ddos"
+      ],
+      "description": "Once infected with this malware, a host becomes part of the IMDDOS Botnet",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+          "phase_name": "exploit"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--9242b6f6-6bfb-4a98-b866-2c4f9a20fa5f",
+      "created": "2017-07-18T01:54:01.449Z",
+      "modified": "2017-07-18T01:54:01.449Z",
+      "name": "IMDDOS THLD",
+      "labels": [
+        "malicious-activity"
+      ],
+      "description": "References to this domain are indicative of the presence of the IMDDOS malware in the environment",
+      "valid_from": "2010-04-01T00:00:00.000Z",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+          "phase_name": "exploit"
+        }
+      ],
+      "pattern": "[ domain-name:value = 'imddos.my03.com' ]"
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--1ab20977-fcac-460c-893a-a712e33d3430",
+      "created": "2017-07-18T01:54:01.449Z",
+      "modified": "2017-07-18T01:54:01.449Z",
+      "name": "IMDDOS THLD Traffic",
+      "labels": [
+        "malicious-activity"
+      ],
+      "description": "Traffic to this domain indicates the source host is infected with IMDDOS malware",
+      "valid_from": "2010-04-01T00:00:00.000Z",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+          "phase_name": "exploit"
+        }
+      ],
+      "pattern": "[ network-traffic:dst_ref.type = 'domain-name' AND network-traffic:dst_ref.value = 'imddos.my03.com' AND network-traffic:dst_port = 9090 ]"
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--ecc37b57-5107-47ec-aa8d-1449342f078a",
+      "created": "2017-07-18T01:54:01.450Z",
+      "modified": "2017-07-18T01:54:01.450Z",
+      "name": "IMDDOS Infected Host",
+      "labels": [
+        "malicious-activity"
+      ],
+      "description": "Presence of this registry key on a host indicates it is infected with the IMDDOS malware",
+      "valid_from": "2010-04-01T00:00:00.000Z",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+          "phase_name": "exploit"
+        }
+      ],
+      "pattern": "[windows-registry-key:key LIKE 'HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SafePrec%' ]"
+    },
+    {
+      "type": "indicator",
+      "id": "indicator--2a50707b-f3e9-4ac9-911e-5b912500bd48",
+      "created": "2017-07-18T01:54:01.450Z",
+      "modified": "2017-07-18T01:54:01.450Z",
+      "name": "IMDDOS C2 Traffic",
+      "labels": [
+        "malicious-activity"
+      ],
+      "description": "Traffic to these domains indicates that the source host is under the control of the IMDDOS malware",
+      "valid_from": "2010-04-01T00:00:00.000Z",
+      "kill_chain_phases": [
+        {
+          "kill_chain_name": "lockheed-martin-cyber-kill-chain",
+          "phase_name": "control"
+        }
+      ],
+      "pattern": "[ network-traffic:dst_ref.type = 'domain-name' AND network-traffic:dst_ref.value IN ('dns.ddos.im', 'win2003ddos.3322.org', 'woshindi.3322.org', 'pk518.3322.org', 'huanjue6369029.3322.org', 'qq603535.3322.org', 'qq188588.3322.org', 'hjff.3322.org', '198600.3322.org', 'ankankan.3322.org', 'yinn.3322.org') ]"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--f8a9e062-0fcf-49b6-993f-f46d139de33b",
+      "created": "2017-07-18T01:54:01.450Z",
+      "modified": "2017-07-18T01:54:01.450Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--9242b6f6-6bfb-4a98-b866-2c4f9a20fa5f",
+      "target_ref": "malware--48959269-3397-4c7b-a646-18c7bd54e34b"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--50ec4b7f-1f96-41f4-9f19-5f9672805aee",
+      "created": "2017-07-18T01:54:01.450Z",
+      "modified": "2017-07-18T01:54:01.450Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--1ab20977-fcac-460c-893a-a712e33d3430",
+      "target_ref": "malware--48959269-3397-4c7b-a646-18c7bd54e34b"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--119289df-caff-43bc-979e-86b1110e641e",
+      "created": "2017-07-18T01:54:01.450Z",
+      "modified": "2017-07-18T01:54:01.450Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--ecc37b57-5107-47ec-aa8d-1449342f078a",
+      "target_ref": "malware--48959269-3397-4c7b-a646-18c7bd54e34b"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--89cbbdb6-616e-4ffb-b2f1-aa15ef26c7da",
+      "created": "2017-07-18T01:54:01.450Z",
+      "modified": "2017-07-18T01:54:01.450Z",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--2a50707b-f3e9-4ac9-911e-5b912500bd48",
+      "target_ref": "malware--48959269-3397-4c7b-a646-18c7bd54e34b"
+    }
+  ]
+}
