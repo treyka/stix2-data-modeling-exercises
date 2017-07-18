@@ -1,12 +1,12 @@
 {
   "type": "bundle",
-  "id": "bundle--f784ea82-59aa-4ae9-95b2-0c052b5029b3",
+  "id": "bundle--9a4d4f89-c828-436b-858d-68e573ec8e51",
   "spec_version": "2.0",
   "objects": [
     {
       "type": "marking-definition",
-      "id": "marking-definition--413843b1-e4d4-4516-8513-6b2f91b94c86",
-      "created": "2017-07-18T01:54:01.448Z",
+      "id": "marking-definition--1f785a93-17fa-4253-8d79-f3159570738d",
+      "created": "2017-07-18T21:52:02.384Z",
       "definition_type": "statement",
       "definition": {
         "statement": "Copyright 2010, Damballa, Inc  All Rights Reserved"
@@ -14,9 +14,9 @@
     },
     {
       "type": "report",
-      "id": "report--c3b32c7e-b8f5-4f87-a99a-baaa91a46a56",
-      "created": "2017-07-18T01:54:01.448Z",
-      "modified": "2017-07-18T01:54:01.448Z",
+      "id": "report--709abd01-0f85-4650-bf61-4504d6e771fe",
+      "created": "2017-07-18T21:52:02.385Z",
+      "modified": "2017-07-18T21:52:02.385Z",
       "name": "IMDDOS Botnet",
       "labels": [
         "threat-report"
@@ -24,14 +24,14 @@
       "description": "The newly-uncovered IMDDOS Botnet is a commercial DDOS service hosted in China.",
       "published": "2010-09-13T00:00:00.000Z",
       "object_refs": [
-        "malware--48959269-3397-4c7b-a646-18c7bd54e34b",
-        "indicator--9242b6f6-6bfb-4a98-b866-2c4f9a20fa5f",
-        "indicator--1ab20977-fcac-460c-893a-a712e33d3430",
-        "indicator--ecc37b57-5107-47ec-aa8d-1449342f078a",
-        "indicator--2a50707b-f3e9-4ac9-911e-5b912500bd48"
+        "malware--f2a68ac1-73bc-4fb4-89dd-68aad0ceed70",
+        "indicator--be4ddc94-818f-4b8f-83f3-fd25710059c5",
+        "indicator--d134e119-bd1c-4190-9c87-3ec928567c63",
+        "indicator--9ae7349c-1849-4611-9fda-f5acb7fd2e82",
+        "indicator--9dc3b6cb-c839-43d1-9435-4880667967ae"
       ],
       "object_marking_refs": [
-        "marking-definition--413843b1-e4d4-4516-8513-6b2f91b94c86"
+        "marking-definition--1f785a93-17fa-4253-8d79-f3159570738d"
       ],
       "external_references": [
         {
@@ -45,9 +45,9 @@
     },
     {
       "type": "malware",
-      "id": "malware--48959269-3397-4c7b-a646-18c7bd54e34b",
-      "created": "2017-07-18T01:54:01.448Z",
-      "modified": "2017-07-18T01:54:01.448Z",
+      "id": "malware--f2a68ac1-73bc-4fb4-89dd-68aad0ceed70",
+      "created": "2017-07-18T21:52:02.385Z",
+      "modified": "2017-07-18T21:52:02.385Z",
       "name": "IMDDOS",
       "labels": [
         "bot",
@@ -62,10 +62,27 @@
       ]
     },
     {
+      "type": "threat-actor",
+      "id": "threat-actor--0c13b4d8-47a2-4744-bc6e-8dcb56994305",
+      "created": "2017-07-18T21:52:02.385Z",
+      "modified": "2017-07-18T21:52:02.385Z",
+      "name": "(Unnamed) IMDDOS Threat Actor",
+      "labels": [
+        "criminal"
+      ]
+    },
+    {
+      "type": "location",
+      "id": "location--6aa81d8c-cc48-4f40-b9d6-5271ba4e7d05",
+      "created": "2017-07-18T21:52:02.385Z",
+      "modified": "2017-07-18T21:52:02.385Z",
+      "country": "China"
+    },
+    {
       "type": "indicator",
-      "id": "indicator--9242b6f6-6bfb-4a98-b866-2c4f9a20fa5f",
-      "created": "2017-07-18T01:54:01.449Z",
-      "modified": "2017-07-18T01:54:01.449Z",
+      "id": "indicator--be4ddc94-818f-4b8f-83f3-fd25710059c5",
+      "created": "2017-07-18T21:52:02.385Z",
+      "modified": "2017-07-18T21:52:02.385Z",
       "name": "IMDDOS THLD",
       "labels": [
         "malicious-activity"
@@ -82,9 +99,9 @@
     },
     {
       "type": "indicator",
-      "id": "indicator--1ab20977-fcac-460c-893a-a712e33d3430",
-      "created": "2017-07-18T01:54:01.449Z",
-      "modified": "2017-07-18T01:54:01.449Z",
+      "id": "indicator--d134e119-bd1c-4190-9c87-3ec928567c63",
+      "created": "2017-07-18T21:52:02.386Z",
+      "modified": "2017-07-18T21:52:02.386Z",
       "name": "IMDDOS THLD Traffic",
       "labels": [
         "malicious-activity"
@@ -101,9 +118,9 @@
     },
     {
       "type": "indicator",
-      "id": "indicator--ecc37b57-5107-47ec-aa8d-1449342f078a",
-      "created": "2017-07-18T01:54:01.450Z",
-      "modified": "2017-07-18T01:54:01.450Z",
+      "id": "indicator--9ae7349c-1849-4611-9fda-f5acb7fd2e82",
+      "created": "2017-07-18T21:52:02.386Z",
+      "modified": "2017-07-18T21:52:02.386Z",
       "name": "IMDDOS Infected Host",
       "labels": [
         "malicious-activity"
@@ -116,13 +133,13 @@
           "phase_name": "exploit"
         }
       ],
-      "pattern": "[windows-registry-key:key LIKE 'HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SafePrec%' ]"
+      "pattern": "[windows-registry-key:key LIKE 'HKEY_LOCAL_MACHINE\\\\System\\\\CurrentControlSet\\\\Services\\\\SafePrec%' ]"
     },
     {
       "type": "indicator",
-      "id": "indicator--2a50707b-f3e9-4ac9-911e-5b912500bd48",
-      "created": "2017-07-18T01:54:01.450Z",
-      "modified": "2017-07-18T01:54:01.450Z",
+      "id": "indicator--9dc3b6cb-c839-43d1-9435-4880667967ae",
+      "created": "2017-07-18T21:52:02.387Z",
+      "modified": "2017-07-18T21:52:02.387Z",
       "name": "IMDDOS C2 Traffic",
       "labels": [
         "malicious-activity"
@@ -139,39 +156,57 @@
     },
     {
       "type": "relationship",
-      "id": "relationship--f8a9e062-0fcf-49b6-993f-f46d139de33b",
-      "created": "2017-07-18T01:54:01.450Z",
-      "modified": "2017-07-18T01:54:01.450Z",
+      "id": "relationship--efe6d7d9-df9f-4bc8-9684-ca14451d833f",
+      "created": "2017-07-18T21:52:02.387Z",
+      "modified": "2017-07-18T21:52:02.387Z",
       "relationship_type": "indicates",
-      "source_ref": "indicator--9242b6f6-6bfb-4a98-b866-2c4f9a20fa5f",
-      "target_ref": "malware--48959269-3397-4c7b-a646-18c7bd54e34b"
+      "source_ref": "indicator--be4ddc94-818f-4b8f-83f3-fd25710059c5",
+      "target_ref": "malware--f2a68ac1-73bc-4fb4-89dd-68aad0ceed70"
     },
     {
       "type": "relationship",
-      "id": "relationship--50ec4b7f-1f96-41f4-9f19-5f9672805aee",
-      "created": "2017-07-18T01:54:01.450Z",
-      "modified": "2017-07-18T01:54:01.450Z",
+      "id": "relationship--fb31fca9-499f-47cb-8def-2ca21b12acb1",
+      "created": "2017-07-18T21:52:02.387Z",
+      "modified": "2017-07-18T21:52:02.387Z",
       "relationship_type": "indicates",
-      "source_ref": "indicator--1ab20977-fcac-460c-893a-a712e33d3430",
-      "target_ref": "malware--48959269-3397-4c7b-a646-18c7bd54e34b"
+      "source_ref": "indicator--d134e119-bd1c-4190-9c87-3ec928567c63",
+      "target_ref": "malware--f2a68ac1-73bc-4fb4-89dd-68aad0ceed70"
     },
     {
       "type": "relationship",
-      "id": "relationship--119289df-caff-43bc-979e-86b1110e641e",
-      "created": "2017-07-18T01:54:01.450Z",
-      "modified": "2017-07-18T01:54:01.450Z",
+      "id": "relationship--238b342d-7aa3-43d7-a515-a260be817a46",
+      "created": "2017-07-18T21:52:02.387Z",
+      "modified": "2017-07-18T21:52:02.387Z",
       "relationship_type": "indicates",
-      "source_ref": "indicator--ecc37b57-5107-47ec-aa8d-1449342f078a",
-      "target_ref": "malware--48959269-3397-4c7b-a646-18c7bd54e34b"
+      "source_ref": "indicator--9ae7349c-1849-4611-9fda-f5acb7fd2e82",
+      "target_ref": "malware--f2a68ac1-73bc-4fb4-89dd-68aad0ceed70"
     },
     {
       "type": "relationship",
-      "id": "relationship--89cbbdb6-616e-4ffb-b2f1-aa15ef26c7da",
-      "created": "2017-07-18T01:54:01.450Z",
-      "modified": "2017-07-18T01:54:01.450Z",
+      "id": "relationship--fa63c364-6c54-4291-b380-af5ec08eafdf",
+      "created": "2017-07-18T21:52:02.387Z",
+      "modified": "2017-07-18T21:52:02.387Z",
       "relationship_type": "indicates",
-      "source_ref": "indicator--2a50707b-f3e9-4ac9-911e-5b912500bd48",
-      "target_ref": "malware--48959269-3397-4c7b-a646-18c7bd54e34b"
+      "source_ref": "indicator--9dc3b6cb-c839-43d1-9435-4880667967ae",
+      "target_ref": "malware--f2a68ac1-73bc-4fb4-89dd-68aad0ceed70"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--613b2c7a-4d3f-4c7b-9837-3cd72d5d089e",
+      "created": "2017-07-18T21:52:02.387Z",
+      "modified": "2017-07-18T21:52:02.387Z",
+      "relationship_type": "located-at",
+      "source_ref": "threat-actor--0c13b4d8-47a2-4744-bc6e-8dcb56994305",
+      "target_ref": "location--6aa81d8c-cc48-4f40-b9d6-5271ba4e7d05"
+    },
+    {
+      "type": "relationship",
+      "id": "relationship--7943dc60-4e91-434b-9ee8-4e04cef2205a",
+      "created": "2017-07-18T21:52:02.387Z",
+      "modified": "2017-07-18T21:52:02.387Z",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--0c13b4d8-47a2-4744-bc6e-8dcb56994305",
+      "target_ref": "malware--f2a68ac1-73bc-4fb4-89dd-68aad0ceed70"
     }
   ]
 }

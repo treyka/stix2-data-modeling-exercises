@@ -18,6 +18,13 @@ malware:
    description: "Once infected with this malware, a host becomes part of the IMDDOS Botnet"
    kill_chain_phases: [ { kill_chain_name: "lockheed-martin-cyber-kill-chain", phase_name: "exploit" } ]
 
+threat-actor:
+   name: (Unnamed) IMDDOS Threat Actor
+   labels: [ criminal ]
+
+location:
+   country: China
+
 indicator:
    name: IMDDOS THLD
    labels: [ malicious-activity ]
@@ -40,7 +47,7 @@ indicator:
    description: "Presence of this registry key on a host indicates it is infected with the IMDDOS malware"
    valid_from: 2010-04-01T00:00:00Z
    kill_chain_phases: [ { kill_chain_name: "lockheed-martin-cyber-kill-chain", phase_name: "exploit" } ]
-   pattern: "[windows-registry-key:key LIKE 'HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SafePrec%' ]"
+   pattern: "[windows-registry-key:key LIKE 'HKEY_LOCAL_MACHINE\\\\System\\\\CurrentControlSet\\\\Services\\\\SafePrec%' ]"
 
 indicator:
    name: IMDDOS C2 Traffic
@@ -70,3 +77,12 @@ relationship:
    source_ref: IMDDOS C2 Traffic
    target_ref: IMDDOS
 
+relationship:
+   relationship_type: located-at
+   source_ref: 3
+   target_ref: 4
+
+relationship:
+   relationship_type: uses
+   source_ref: 3
+   target_ref: IMDDOS
