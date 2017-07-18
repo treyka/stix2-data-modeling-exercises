@@ -8,7 +8,7 @@ report:
    labels: [ threat-report ]
    description: "The newly-uncovered IMDDOS Botnet is a commercial DDOS service hosted in China."
    published: 2010-09-13T00:00:00Z
-   object_refs: [ IMDDOS, IMDDOS THLD, IMDDOS THLD Traffic, IMDDOS Infected Host, IMDDOS C2 Traffic ]
+   object_refs: [ IMDDOS, (Unnamed) IMDDOS Threat Actor, IMDDOS THLD, IMDDOS THLD Traffic, IMDDOS Infected Host, IMDDOS C2 Traffic ]
    object_marking_refs: [ 0 ]
    external_references: [ { source_name: "Damballa, Inc.", url: "https://www.coresecurity.com/system/files/publications/2017/03/Damballa_Report_IMDDOS.pdf",  hashes: { SHA-1: "4e0f4197d6d61f52f80a5560d78af599a37277c0" } } ]
 
